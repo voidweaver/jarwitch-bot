@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Configuration>
+    <Appenders>
+        <Console name="console">
+            <PatternLayout>
+                <Pattern>%d{ISO8601_OFFSET_DATE_TIME_HH} [%t] %p %c{5} - %msg%n%throwable</Pattern>
+            </PatternLayout>
+        </Console>
+        <File name="bot_file" fileName="logs/bot.log">
+            <ThresholdFilter level="INFO" onMatch="ACCEPT" onMismatch="DENY"/>
+            <PatternLayout>
+                <Pattern>%d{ISO8601_OFFSET_DATE_TIME_HH} %p %c{5} - %msg%n%throwable</Pattern>
+            </PatternLayout>
+        </File>
+    </Appenders>
+    <Loggers>
+        <Root level="WARN" additivity="false">
+            <AppenderRef ref="console" />
+            <AppenderRef ref="bot_file" />
+        </Root>
+        <Logger name="jarwitch" level="TRACE" />
+    </Loggers>
+</Configuration>

@@ -1,0 +1,37 @@
+plugins {
+    id 'java'
+    id 'io.spring.dependency-management' version '1.0.1.RELEASE'
+}
+
+group 'dev.voidweaver'
+version '0.1.0'
+
+repositories {
+    mavenCentral()
+    jcenter()
+}
+
+dependencyManagement {
+    imports {
+        mavenBom 'org.apache.logging.log4j:log4j-bom:2.14.0'
+    }
+}
+
+dependencies {
+    testImplementation 'org.junit.jupiter:junit-jupiter-api:5.6.0'
+    testRuntimeOnly 'org.junit.jupiter:junit-jupiter-engine'
+
+    compile 'org.apache.logging.log4j:log4j-api:2.14.1'
+    compile 'org.apache.logging.log4j:log4j-core:2.14.1'
+    compile 'org.apache.logging.log4j:log4j-slf4j-impl:2.14.1'
+
+    compile 'net.dv8tion:JDA:4.2.0_168'
+
+    compile 'org.mongodb:mongodb-driver-sync:4.2.2'
+
+    implementation 'joda-time:joda-time:2.10.10'
+}
+
+test {
+    useJUnitPlatform()
+}
